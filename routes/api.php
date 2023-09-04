@@ -27,6 +27,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Route::patch('country/{id}', [CountryController::class, 'countryUpdate']);
 // Route::delete('country/{id}', [CountryController::class, 'countryDelete']);
 
-Route::apiResource('country', CountryControl::class, [
-    'only' => ['index', 'show', 'store', 'update', 'destroy'],
-]);
+
+Route::group(['middleware' => 'auth:api'], function() {
+    Route::apiResource('country', CountryControl::class, [
+        'only' => ['index', 'show', 'store', 'update', 'destroy'],
+    ]);
+});
