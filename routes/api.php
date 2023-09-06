@@ -36,3 +36,4 @@ Route::apiResource('country', CountryControl::class, [
     'only' => ['index', 'show', 'store', 'update', 'destroy'],
    ]);
 Route::get('file/country_list', [FileController::class, 'countryList']);
+Route::post('file/country_list', [FileController::class, 'countrySave']);
