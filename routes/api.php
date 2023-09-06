@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CountryControl;
+use App\Http\Controllers\FileController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -34,3 +35,4 @@ Route::group(['middleware' => 'auth:api'], function() {
 Route::apiResource('country', CountryControl::class, [
     'only' => ['index', 'show', 'store', 'update', 'destroy'],
    ]);
+Route::get('file/country_list', [FileController::class, 'countryList']);
